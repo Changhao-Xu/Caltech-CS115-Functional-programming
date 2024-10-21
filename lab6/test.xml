@@ -1,0 +1,68 @@
+<h1>XML tests</h1>
+
+<p>This is a test 
+of a simple XML parser.</p>
+
+<p>Hamlet's soliloquy:</p>
+
+<blockquote>
+
+To <u>be</u>, or <b>not</b> to be, <em>THAT</em> is the question.  "Haste makes
+<em>waste</em>", &amp; as my Mom always said -- and that's the &lt;truth&gt;!
+
+</blockquote>
+
+<p>Forms can be <a><b><c><d><e>nested</e></d></c></b></a> arbitrarily deeply as
+long as the end tags match the start tags.</p>
+
+
+<h2>Writing and testing your code</h2>
+
+<p>All of your Haskell functions, even internal ones (functions defined inside
+other functions), should have explicit type signatures.</p><p>All of your code
+should be tested using <code>ghci</code> with the <code>-W</code> (warnings
+enabled) command-line option.  Any warnings will be considered errors, so make
+sure your code does not give any warnings.</p><p>We are supplying automated
+test scripts for part A and part C.  The test script for part A is located <a>
+here</a> and the one for part C is located <a>here</a>. You can run them from
+<code>ghci</code> by putting them in the same directory as your code (which
+must have the correct module names <em>i.e.</em> <code>lab2ab.hs</code> for
+part A and <code>SparseMatrix.hs</code> for part D).  Then do this:</p>
+
+<pre>
+<code>Prelude&gt; :l ./SignedNatTests.hs
+*SignedNatTests&gt; main
+[output is printed...]
+Prelude&gt; :l ./SparseMatrixTests.hs
+*SparseMatrixTests&gt; main
+[output is printed...]
+</code>
+</pre>
+
+<p>and then the tests will be run and the output will be printed.  You will
+probably find it difficult to understand the test code (it relies on a very
+cool group of modules collectively called <code>QuickCheck</code> which
+implement randomized testing, and another group of modules called
+<code>HUnit</code> which implement unit testing) but the comments in the test
+script and the test script output after running the tests will let you know if
+your tests should fail at any point.  The <code>QuickCheck</code> modules
+define a custom monad called <code>Gen</code> to generate random examples of
+data structures, which is an application of monads we haven't discussed in
+class yet.  The test script cannot test for everything, but it should catch the
+most serious problems.</p><p>One trick you might want to try in case you have a
+test failure which is difficult to debug is to use the <code>trace</code>
+function from the <code>Debug.Trace</code> module.  This function takes a
+string and a value, prints the string and returns the value.  The trick is that
+it does this without being in the <code>IO</code> monad, so it uses the dreaded
+<code>unsafePerformIO</code> function.  This is OK since all it does is print
+output before returning a value.  For a particular value in a computation, you
+can do this:</p>
+
+<pre>
+<code>
+-- ... somewhere inside an expression, you want to print the value of x ...  
+-- instead of just (x), write: (trace ("x = " ++ show x) x) 
+</code> 
+</pre>
+
+

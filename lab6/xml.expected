@@ -1,0 +1,522 @@
+Form: {h1}[
+  Text[
+XML tests
+  ]
+
+]{/h1}
+
+
+Text[
+
+
+
+]
+
+
+Form: {p}[
+  Text[
+This is a test 
+of a simple XML parser.
+  ]
+
+]{/p}
+
+
+Text[
+
+
+
+]
+
+
+Form: {p}[
+  Text[
+Hamlet's soliloquy:
+  ]
+
+]{/p}
+
+
+Text[
+
+
+
+]
+
+
+Form: {blockquote}[
+  Text[
+
+
+To 
+  ]
+
+  Form: {u}[
+    Text[
+be
+    ]
+
+  ]{/u}
+
+  Text[
+, or 
+  ]
+
+  Form: {b}[
+    Text[
+not
+    ]
+
+  ]{/b}
+
+  Text[
+ to be, 
+  ]
+
+  Form: {em}[
+    Text[
+THAT
+    ]
+
+  ]{/em}
+
+  Text[
+ is the question.  "Haste makes
+
+  ]
+
+  Form: {em}[
+    Text[
+waste
+    ]
+
+  ]{/em}
+
+  Text[
+", 
+  ]
+
+  Entity[AMP_E]
+  Text[
+ as my Mom always said -- and that's the 
+  ]
+
+  Entity[LT_E]
+  Text[
+truth
+  ]
+
+  Entity[GT_E]
+  Text[
+!
+
+
+  ]
+
+]{/blockquote}
+
+
+Text[
+
+
+
+]
+
+
+Form: {p}[
+  Text[
+Forms can be 
+  ]
+
+  Form: {a}[
+    Form: {b}[
+      Form: {c}[
+        Form: {d}[
+          Form: {e}[
+            Text[
+nested
+            ]
+
+          ]{/e}
+
+        ]{/d}
+
+      ]{/c}
+
+    ]{/b}
+
+  ]{/a}
+
+  Text[
+ arbitrarily deeply as
+long as the end tags match the start tags.
+  ]
+
+]{/p}
+
+
+Text[
+
+
+
+
+]
+
+
+Form: {h2}[
+  Text[
+Writing and testing your code
+  ]
+
+]{/h2}
+
+
+Text[
+
+
+
+]
+
+
+Form: {p}[
+  Text[
+All of your Haskell functions, even internal ones (functions defined inside
+other functions), should have explicit type signatures.
+  ]
+
+]{/p}
+
+
+Form: {p}[
+  Text[
+All of your code
+should be tested using 
+  ]
+
+  Form: {code}[
+    Text[
+ghci
+    ]
+
+  ]{/code}
+
+  Text[
+ with the 
+  ]
+
+  Form: {code}[
+    Text[
+-W
+    ]
+
+  ]{/code}
+
+  Text[
+ (warnings
+enabled) command-line option.  Any warnings will be considered errors, so make
+sure your code does not give any warnings.
+  ]
+
+]{/p}
+
+
+Form: {p}[
+  Text[
+We are supplying automated
+test scripts for part A and part C.  The test script for part A is located 
+  ]
+
+  Form: {a}[
+    Text[
+
+here
+    ]
+
+  ]{/a}
+
+  Text[
+ and the one for part C is located 
+  ]
+
+  Form: {a}[
+    Text[
+here
+    ]
+
+  ]{/a}
+
+  Text[
+. You can run them from
+
+  ]
+
+  Form: {code}[
+    Text[
+ghci
+    ]
+
+  ]{/code}
+
+  Text[
+ by putting them in the same directory as your code (which
+must have the correct module names 
+  ]
+
+  Form: {em}[
+    Text[
+i.e.
+    ]
+
+  ]{/em}
+
+  Text[
+ 
+  ]
+
+  Form: {code}[
+    Text[
+lab2ab.hs
+    ]
+
+  ]{/code}
+
+  Text[
+ for
+part A and 
+  ]
+
+  Form: {code}[
+    Text[
+SparseMatrix.hs
+    ]
+
+  ]{/code}
+
+  Text[
+ for part D).  Then do this:
+  ]
+
+]{/p}
+
+
+Text[
+
+
+
+]
+
+
+Form: {pre}[
+  Text[
+
+
+  ]
+
+  Form: {code}[
+    Text[
+Prelude
+    ]
+
+    Entity[GT_E]
+    Text[
+ :l ./SignedNatTests.hs
+*SignedNatTests
+    ]
+
+    Entity[GT_E]
+    Text[
+ main
+[output is printed...]
+Prelude
+    ]
+
+    Entity[GT_E]
+    Text[
+ :l ./SparseMatrixTests.hs
+*SparseMatrixTests
+    ]
+
+    Entity[GT_E]
+    Text[
+ main
+[output is printed...]
+
+    ]
+
+  ]{/code}
+
+  Text[
+
+
+  ]
+
+]{/pre}
+
+
+Text[
+
+
+
+]
+
+
+Form: {p}[
+  Text[
+and then the tests will be run and the output will be printed.  You will
+probably find it difficult to understand the test code (it relies on a very
+cool group of modules collectively called 
+  ]
+
+  Form: {code}[
+    Text[
+QuickCheck
+    ]
+
+  ]{/code}
+
+  Text[
+ which
+implement randomized testing, and another group of modules called
+
+  ]
+
+  Form: {code}[
+    Text[
+HUnit
+    ]
+
+  ]{/code}
+
+  Text[
+ which implement unit testing) but the comments in the test
+script and the test script output after running the tests will let you know if
+your tests should fail at any point.  The 
+  ]
+
+  Form: {code}[
+    Text[
+QuickCheck
+    ]
+
+  ]{/code}
+
+  Text[
+ modules
+define a custom monad called 
+  ]
+
+  Form: {code}[
+    Text[
+Gen
+    ]
+
+  ]{/code}
+
+  Text[
+ to generate random examples of
+data structures, which is an application of monads we haven't discussed in
+class yet.  The test script cannot test for everything, but it should catch the
+most serious problems.
+  ]
+
+]{/p}
+
+
+Form: {p}[
+  Text[
+One trick you might want to try in case you have a
+test failure which is difficult to debug is to use the 
+  ]
+
+  Form: {code}[
+    Text[
+trace
+    ]
+
+  ]{/code}
+
+  Text[
+
+function from the 
+  ]
+
+  Form: {code}[
+    Text[
+Debug.Trace
+    ]
+
+  ]{/code}
+
+  Text[
+ module.  This function takes a
+string and a value, prints the string and returns the value.  The trick is that
+it does this without being in the 
+  ]
+
+  Form: {code}[
+    Text[
+IO
+    ]
+
+  ]{/code}
+
+  Text[
+ monad, so it uses the dreaded
+
+  ]
+
+  Form: {code}[
+    Text[
+unsafePerformIO
+    ]
+
+  ]{/code}
+
+  Text[
+ function.  This is OK since all it does is print
+output before returning a value.  For a particular value in a computation, you
+can do this:
+  ]
+
+]{/p}
+
+
+Text[
+
+
+
+]
+
+
+Form: {pre}[
+  Text[
+
+
+  ]
+
+  Form: {code}[
+    Text[
+
+-- ... somewhere inside an expression, you want to print the value of x ...  
+-- instead of just (x), write: (trace ("x = " ++ show x) x) 
+
+    ]
+
+  ]{/code}
+
+  Text[
+ 
+
+  ]
+
+]{/pre}
+
+
+Text[
+
+
+
+
+]
+
+

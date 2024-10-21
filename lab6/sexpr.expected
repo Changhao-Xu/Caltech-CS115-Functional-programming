@@ -1,0 +1,146 @@
+ListS[
+  AtomS[IdA "define"]
+  ListS[
+    AtomS[IdA "factorial"]
+    AtomS[IdA "n"]
+  ]
+  ListS[
+    AtomS[IdA "if"]
+    ListS[
+      AtomS[IdA "="]
+      AtomS[IdA "n"]
+      AtomS[IntA 0]
+    ]
+    AtomS[IntA 1]
+    ListS[
+      AtomS[IdA "*"]
+      AtomS[IdA "n"]
+      ListS[
+        AtomS[IdA "factorial"]
+        ListS[
+          AtomS[IdA "-"]
+          AtomS[IdA "n"]
+          AtomS[IntA 1]
+        ]
+      ]
+    ]
+  ]
+]
+
+ListS[
+  AtomS[IdA "define"]
+  ListS[
+    AtomS[IdA "solve-quadratic"]
+    AtomS[IdA "a"]
+    AtomS[IdA "b"]
+    AtomS[IdA "c"]
+  ]
+  ListS[
+    AtomS[IdA "let"]
+    ListS[
+      ListS[
+        AtomS[IdA "d"]
+        ListS[
+          AtomS[IdA "sqrt"]
+          ListS[
+            AtomS[IdA "-"]
+            ListS[
+              AtomS[IdA "*"]
+              AtomS[IdA "b"]
+              AtomS[IdA "b"]
+            ]
+            ListS[
+              AtomS[IdA "*"]
+              AtomS[FloatA 4.0]
+              AtomS[IdA "a"]
+              AtomS[IdA "c"]
+            ]
+          ]
+        ]
+      ]
+    ]
+    ListS[
+      AtomS[IdA "list"]
+      ListS[
+        AtomS[IdA "/"]
+        ListS[
+          AtomS[IdA "+"]
+          ListS[
+            AtomS[IdA "-"]
+            AtomS[IdA "b"]
+          ]
+          AtomS[IdA "d"]
+        ]
+        ListS[
+          AtomS[IdA "*"]
+          AtomS[FloatA 2.0]
+          AtomS[IdA "a"]
+        ]
+      ]
+      ListS[
+        AtomS[IdA "/"]
+        ListS[
+          AtomS[IdA "-"]
+          ListS[
+            AtomS[IdA "-"]
+            AtomS[IdA "b"]
+          ]
+          AtomS[IdA "d"]
+        ]
+        ListS[
+          AtomS[IdA "*"]
+          AtomS[FloatA 2.0]
+          AtomS[IdA "a"]
+        ]
+      ]
+    ]
+  ]
+]
+
+ListS[
+  AtomS[IdA "list"]
+  AtomS[BoolA False]
+  ListS[
+    AtomS[IdA "lambda"]
+    ListS[
+      AtomS[IdA "x"]
+    ]
+    AtomS[IdA "x"]
+  ]
+  ListS[
+    AtomS[IdA "quote"]
+    ListS[
+      AtomS[IdA "foo"]
+      AtomS[IdA "bar"]
+      AtomS[IdA "baz"]
+    ]
+  ]
+  ListS[
+    AtomS[IdA "quote"]
+    AtomS[IdA "foo"]
+  ]
+  ListS[
+    AtomS[IdA "quote"]
+    AtomS[IdA "bar"]
+  ]
+  ListS[
+    AtomS[IdA "quote"]
+    AtomS[IdA "baz"]
+  ]
+]
+
+ListS[
+  AtomS[IdA "+"]
+  AtomS[FloatA 2.0]
+  AtomS[FloatA (-3.5)]
+  AtomS[FloatA 1.2e10]
+  AtomS[FloatA 1.0e-10]
+  AtomS[FloatA 3.14e101]
+]
+
+ListS[
+  AtomS[IdA "string-append"]
+  AtomS[StringA "foobar"]
+  AtomS[StringA "this\nis\na\nvery\nlong\nstring\ndivided\ninto\nmultiple\nlines\nwith\nsome\nsymbols like ~!@#$%^&*()_+`-={}|[]\\:;'<>?,./\nadded for good measure"]
+]
+
